@@ -92,3 +92,12 @@ function understrap_child_customize_controls_js() {
 	);
 }
 add_action( 'customize_controls_enqueue_scripts', 'understrap_child_customize_controls_js' );
+
+
+/* Allow upload of SVG files */
+function wpcontent_svg_mime_type( $mimes = array() ) {
+  $mimes['svg']  = 'image/svg+xml';
+  $mimes['svgz'] = 'image/svg+xml';
+  return $mimes;
+}
+add_filter( 'upload_mimes', 'wpcontent_svg_mime_type' );   
